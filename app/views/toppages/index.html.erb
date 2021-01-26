@@ -1,0 +1,15 @@
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+<% else %>
+
+
+
+    <div class="center jumbotron">
+      <div class="text-center">
+        <h1>ようこそ添削.comへ</h1>
+        <p>新規ユーザーの方は新規登録、すでに会員の方はログイン</p><br>
+        <%= link_to '新規登録!', signup_path, class: 'btn btn-lg btn-primary' %>
+        <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-primary' %>
+      </div>
+    </div>
+<%end%>

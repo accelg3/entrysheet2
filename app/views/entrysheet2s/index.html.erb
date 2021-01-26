@@ -1,0 +1,29 @@
+<div class="row ">
+  <% @entrysheet2s.each do |entrysheet2| %>
+    
+      
+  <div class="col-lg-6 ">
+          
+            <div class="card">
+              <div class='card-header'>
+                    
+                投稿者:<%= link_to entrysheet2.user.name, entrysheet2 %> 
+              </div>
+          
+            
+              <div class="card-body">
+    
+            
+                <p class="card-text">会社名:<%= entrysheet2.company %></p><br>
+                <p class="card-text">企業理念:<%=entrysheet2.idea%></p><br>
+                <p class="card-text">業界:<%=entrysheet2.industry%></p>
+              </div>
+
+            </div>
+       
+     
+      
+  </div>  
+  <% end %>
+</div>
+  <%= paginate @entrysheet2s %>

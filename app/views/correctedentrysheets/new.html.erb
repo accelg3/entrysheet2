@@ -1,0 +1,17 @@
+<div class="row">
+  
+
+    <%= form_with(model: current_user.correctedentrysheets.find_by(entrysheet2_id: entrysheet2.id), local: true) do |f| %>
+      
+      <div class="form-group inputlarge">
+        <%= f.label :memo, 'メモ' %>
+        <%= f.text_field :memo, class: 'form-control' %>
+      </div>
+
+
+
+      
+      <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div

@@ -1,0 +1,15 @@
+<div class="text-center">
+  <p><font size='6'>投稿したユーザー名<br><font size='5'><%=link_to @entrysheet2.user.name,user_path(@entrysheet2.user)%></font></p>
+  <p><font size='6'>会社名<br><font size='5'><%= @entrysheet2.company%></font></p>
+  <p><font size="6">企業理念</font></p>      
+     
+   <p><font size='5'><%=@entrysheet2.idea%></font></p>
+  <p><font size='6'>業界<br><font size='5'><%=@entrysheet2.industry%></font></p> 
+  <p><font size='6'>主な事業<br><font size='5'><%=@entrysheet2.business%></font></p>
+  <a href="<%= download_entrysheet2_path(@entrysheet2) %>" download >ESダウンロード</a><br>
+  <%= link_to '添削後ＥＳ一覧', correctedindex_entrysheet2_path, class: 'btn btn-lg btn-primary' %>
+  <%= link_to 'ＥＳ一覧', entrysheet2s_path, class: 'btn btn-lg btn-primary' %>
+ 
+  <%= link_to "ES添削", new_correctedentrysheet2_path(entrysheet2_id: params[:id]),class: 'btn btn-lg btn-primary' %>
+</div>
+

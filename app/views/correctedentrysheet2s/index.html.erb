@@ -1,0 +1,19 @@
+<ul class="list-unstyled">
+  <% @correctedentrysheet2s.each do |correctedentrysheet2| %>
+    <li class="media mb-3">
+      
+      <div class="media-body">
+        <div>
+          投稿者:<%= link_to correctedentrysheet2.user.name, correctedentrysheet2 %> 
+        </div>
+        <div>
+          <p>会社名:<%= correctedentrysheet2.entrysheet2.company %></p><br>
+          <p>企業理念:<%=correctedentrysheet2.entrysheet2.idea%></p><br>
+          <p>業界:<%=correctedentrysheet2.entrysheet2.industry%></p>
+          
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate @correctedentrysheet2s %>
+</ul>

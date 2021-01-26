@@ -1,0 +1,28 @@
+<div class="text-center">
+  <div class="row">
+      
+        <%= form_with(model: current_user.correctedentrysheet2s.build, local: true) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>          
+              <div class="form-group ">
+                <%= f.label :memo, 'メモ' %><br>
+                <%= f.text_area :memo, :size => "60x10"  %>
+              </div>
+              
+              <div class="field">
+                    <%= f.label :correctedesfile %>
+                    <%= f.file_field :correctedesfile, id: :user_correctedesfile %>
+              </div>
+           
+              <%= f.hidden_field :entrysheet2_id, :value => params[:entrysheet2_id]%>    
+              <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+        <% end %>
+      
+     
+    　　
+        
+              
+             
+          
+        
+  </div>
+</div>

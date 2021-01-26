@@ -1,0 +1,13 @@
+<div class="text-center">
+  <p><font size='6'>投稿したユーザー名<br><font size='5'><%=link_to @correctedentrysheet2.user.name,user_path(@correctedentrysheet2.user)%></font></p>
+  <p><font size='6'>メモ<br><font size='5'><%= @correctedentrysheet2.memo%></font></p>
+     
+     
+
+  <a href="<%= download2_correctedentrysheet2_path(@correctedentrysheet2) %>" download >添削後ESダウンロード</a><br>
+  <%= link_to 'ＥＳ一覧', entrysheet2s_path, class: 'btn btn-lg btn-primary' %>
+  
+  
+  <%= link_to '他の添削後ＥＳ一覧',correctedindex_entrysheet2_path(@correctedentrysheet2.entrysheet2_id), class: 'btn btn-lg btn-primary' %>
+</div>
+
