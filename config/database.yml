@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: entrysheet_production
   username: entrysheet
   password: <%= ENV['ENTRYSHEET_DATABASE_PASSWORD'] %>
