@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'toppages/index'
   root to: 'toppages#index'
   get 'signup', to: 'users#new'
+  get 'help', to: 'entrysheet2s#help'
   resources :users, only:[:show,:new,:create]
   resources :entrysheet2s, only: [:index, :show, :new, :create] do
     member do

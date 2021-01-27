@@ -1,3 +1,7 @@
+<div class="tetx-center">
+  <h1>添削されたES一覧</h1>
+</div>
+
 <div class="row ">
   <% @correctedentrysheet2s.each do |correctedentrysheet2| %>
     
@@ -7,7 +11,7 @@
             <div class="card">
               <div class='card-header'>
                     
-                投稿者:<%= link_to correctedentrysheet2.user.name,  correctedentrysheet2 %> 
+                添削したユーザー:<%= link_to correctedentrysheet2.user.name,  correctedentrysheet2 %> 
               </div>
           
             

@@ -42,6 +42,11 @@ class Entrysheet2sController < ApplicationController
     send_file(filepath)
   end
   
+  def help
+    
+  end
+  
+  
   private
   
   def entrysheet2_params
