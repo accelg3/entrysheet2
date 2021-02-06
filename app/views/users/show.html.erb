@@ -1,22 +1,31 @@
+
 <div class="row ">
+
+  
   <% @entrysheet2s.each do |entrysheet2| %>
     
       
-  <div class="col-lg-6 ">
+  <div class="col-lg-3 ">
           
             <div class="card">
               <div class='card-header'>
                     
-                投稿者:<%= link_to entrysheet2.user.name, entrysheet2 %> 
+                <i class="fas fa-user-alt"></i> 投稿者:<%= link_to entrysheet2.user.name, user_path(entrysheet2.user) %> 
               </div>
           
             
               <div class="card-body">
     
             
-                <p class="card-text">会社名:<%= entrysheet2.company %></p><br>
-                <p class="card-text">企業理念:<%=entrysheet2.idea%></p><br>
-                <p class="card-text">業界:<%=entrysheet2.industry%></p>
+                <p class="card-text">会社名<br><%= entrysheet2.company %></p><br>
+                
+                <p class="card-text">業界<br>
+                <%entrysheet2.tags.each do |tag| %>
+       
+                  <%= tag.name %>
+                <% end %></p><br>
+                <%= link_to '詳細', entrysheet2, class: 'btn btn-sm btn-primary' %>
+                </p>
               </div>
 
             </div>
@@ -25,5 +34,5 @@
       
   </div>  
   <% end %>
-</div>
+</div><br>
   <%= paginate @entrysheet2s %>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
-    @entrysheet2s = @user.entrysheet2s.order(id: :desc).page(params[:page]).per(6)
+    @entrysheet2s = @user.entrysheet2s.order(id: :desc).page(params[:page]).per(8)
   end
 
   def new

@@ -11,7 +11,7 @@
             <div class="card">
               <div class='card-header'>
                     
-                添削したユーザー:<%= link_to correctedentrysheet2.user.name,  correctedentrysheet2 %> 
+                添削したユーザー:<%= link_to correctedentrysheet2.user.name,  user_path(correctedentrysheet2.user) %> 
               </div>
           
             
@@ -19,6 +19,7 @@
     
             
                 <p class="card-text">メモ：<%=correctedentrysheet2.memo%></p><br>
+                <%= link_to '詳細', correctedentrysheet2, class: 'btn btn-sm btn-primary' %>
 
               </div>
 

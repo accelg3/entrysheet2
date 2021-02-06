@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       get :download
       get :correctedindex
     end
+    collection do
+      get :serch
+    end
+    
   end
   resources :correctedentrysheet2s, only:[:index, :show, :new, :create] do
     member do

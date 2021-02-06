@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_065908) do
+ActiveRecord::Schema.define(version: 2021_01_30_122737) do
 
   create_table "correctedentrysheet2s", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "memo"
@@ -46,6 +46,21 @@ ActiveRecord::Schema.define(version: 2021_01_23_065908) do
     t.index ["user_id"], name: "index_entrysheet2s_on_user_id"
   end
 
+  create_table "estags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "entrysheet2_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entrysheet2_id"], name: "index_estags_on_entrysheet2_id"
+    t.index ["tag_id"], name: "index_estags_on_tag_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -59,4 +74,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_065908) do
   add_foreign_key "correctedentrysheets", "entrysheet2s"
   add_foreign_key "correctedentrysheets", "users"
   add_foreign_key "entrysheet2s", "users"
+  add_foreign_key "estags", "entrysheet2s"
+  add_foreign_key "estags", "tags"
 end

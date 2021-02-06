@@ -1,8 +1,9 @@
 class Entrysheet2sController < ApplicationController
   before_action :require_user_logged_in
+  before_action :set_q, only: [:index, :serch]
   def index
-      
-      @entrysheet2s=Entrysheet2.order(id: :desc).page(params[:page]).per(6)
+     
+      @entrysheet2s=params[:tag_id].present? ? Tag.find(params[:tag_id]).entrysheet2s.order(id: :desc).page(params[:page]).per(8) : Entrysheet2.order(id: :desc).page(params[:page]).per(8)
     
     
   end
@@ -23,11 +24,13 @@ class Entrysheet2sController < ApplicationController
 
   def create
     @entrysheet2=current_user.entrysheet2s.build(entrysheet2_params)
+   
     if @entrysheet2.save
+      
       flash[:ssuccess]='Esが正常に投稿されました'
       redirect_to @entrysheet2
     else
-      @microposts = current_user.entrysheet2s.order(id: :desc).page(params[:page])
+      @entrysheet2 = current_user.entrysheet2s.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
       render :new
     end
@@ -46,11 +49,23 @@ class Entrysheet2sController < ApplicationController
     
   end
   
+  def serch
+    @q = Entrysheet2.ransack(params[:q])
+    @results=@q.result.page(params[:page]).per(6)
+  end
+  
+  
+
+  
   
   private
-  
-  def entrysheet2_params
-    params.require(:entrysheet2).permit(:company,:idea,:industry,:business,:esfileup)
-  end
+    
+    def set_q
+      @q = Entrysheet2.ransack(params[:q])
+    end
+    
+    def entrysheet2_params
+      params.require(:entrysheet2).permit(:company,:idea,:industry,:business,:esfileup, tag_ids: [])
+    end
   
 end

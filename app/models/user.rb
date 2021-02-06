@@ -6,6 +6,8 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
      has_secure_password
-     has_many :entrysheet2s
-     has_many :correctedentrysheet2s
+     has_many :entrysheet2s, dependent: :destroy
+
+     has_many :correctedentrysheet2s, dependent: :destroy
+
 end
